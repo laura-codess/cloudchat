@@ -12,8 +12,6 @@ import {
   updateCommunityInfo,
 } from "@/lib/actions/community.actions";
 
-// Resource: https://clerk.com/docs/integration/webhooks#supported-events
-// Above document lists the supported events
 type EventType =
   | "organization.created"
   | "organizationInvitation.created"
@@ -53,7 +51,7 @@ export const POST = async (request: Request) => {
     return NextResponse.json({ message: err }, { status: 400 });
   }
 
-  const eventType: EventType = evnt?.type!;
+  const eventType: EventType = evnt?.type!
 
   // Listen organization creation event
   if (eventType === "organization.created") {
@@ -74,7 +72,7 @@ export const POST = async (request: Request) => {
         created_by
       );
 
-      return NextResponse.json({ message: "User created" }, { status: 201 });
+      return NextResponse.json({ message: "Received" }, { status: 201 });
     } catch (err) {
       console.log(err);
       return NextResponse.json(
