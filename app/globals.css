@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.layout-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 @layer components {
     /* main */
     .main-container {
